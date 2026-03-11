@@ -9,14 +9,14 @@ const PARSER_OPTIONS = [
     helper: "Extracts vendor, date, total, and currency from invoices.",
   },
   {
-    label: "RBC Credit Card",
+    label: "Credit Card",
     value: "parse/rbc-credit-card",
-    helper: "Normalizes credit-card tables, including foreign currency details.",
+    helper: "Normalizes credit card tables, including foreign currency details.",
   },
   {
-    label: "RBC Bank Statement",
+    label: "Bank Statement",
     value: "parse/rbc-bank-statement",
-    helper: "Cleans bank-statement tables and normalizes transaction dates.",
+    helper: "Cleans bank statement tables and normalizes transaction dates.",
   },
 ];
 
@@ -99,7 +99,7 @@ export default function HomePage() {
         <h1>Upload a PDF and get the parsed CSV</h1>
         <p className="subhead">
           The file is forwarded through the Azure API Management gateway to the FastAPI backend (Azure Container App), then
-          to Azure Document Intelligence. Supply a statement year when parsing RBC statements or credit-card files.
+          to Azure Document Intelligence. Supply a statement year when parsing bank statements or credit-card files.
         </p>
       </header>
 
@@ -137,7 +137,7 @@ export default function HomePage() {
               onChange={(event) => setStatementYear(event.target.value)}
               disabled={selectedParser === "parse/invoice"}
             />
-            <small>Only required for RBC bank or credit-card statements.</small>
+            <small>Only required for bank or credit-card statements.</small>
           </label>
 
           <button type="submit" className="button" disabled={isSubmitting}>

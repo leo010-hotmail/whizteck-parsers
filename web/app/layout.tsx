@@ -3,7 +3,7 @@ import "./globals.css";
 import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "RBC Parser Portal",
+  title: "Parser Portal",
   description: "Upload statements or invoices and download parsed CSVs through the Azure API gateway.",
 };
 

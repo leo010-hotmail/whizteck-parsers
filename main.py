@@ -70,7 +70,7 @@ async def parse_invoice_endpoint(file: UploadFile = File(...)) -> StreamingRespo
 
 @app.post(
     "/parse/rbc-credit-card",
-    summary="Parse an RBC credit-card statement and return CSV rows",
+    summary="Parse a credit-card statement and return CSV rows",
 )
 async def parse_rbc_credit_card_endpoint(
     file: UploadFile = File(...),
@@ -89,12 +89,12 @@ async def parse_rbc_credit_card_endpoint(
         path.unlink(missing_ok=True)
 
     csv_bytes = _serialize_dataframe_to_csv(df, include_header=False)
-    return _build_response(csv_bytes, "rbc-credit-card.csv")
+    return _build_response(csv_bytes, "credit-card.csv")
 
 
 @app.post(
     "/parse/rbc-bank-statement",
-    summary="Parse an RBC bank statement and return cleaned CSV rows",
+    summary="Parse a bank statement and return cleaned CSV rows",
 )
 async def parse_rbc_bank_statement_endpoint(
     file: UploadFile = File(...),
@@ -113,4 +113,4 @@ async def parse_rbc_bank_statement_endpoint(
         path.unlink(missing_ok=True)
 
     csv_bytes = _serialize_dataframe_to_csv(df, include_header=False)
-    return _build_response(csv_bytes, "rbc-bank-statement.csv")
+    return _build_response(csv_bytes, "bank-statement.csv")
