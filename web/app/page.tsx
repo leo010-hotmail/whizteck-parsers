@@ -60,6 +60,7 @@ export default function HomePage() {
     }
 
     const formData = new FormData();
+    formData.append("parser", selectedParser);
     formData.append("file", file);
 
     if (statementYear.trim()) {
