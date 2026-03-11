@@ -70,8 +70,11 @@ export default function HomePage() {
       setIsSubmitting(true);
       setStatus("Uploading file and waiting for the parser...");
 
-      const response = await fetch(`${gatewayUrl}/${selectedParser}`, {
+      const response = await fetch(`/api/parse`, {
         method: "POST",
+        headers: {
+          "Ocp-Apim-Subscription-Key": process.env.NEXT_PUBLIC_APIM_KEY,
+        },
         body: formData,
       });
 
