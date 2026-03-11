@@ -3,6 +3,8 @@
 /venv
 /input
 /output
+/web/node_modules
+/web/.next
 # Python
 __pycache__/
 *.pyc

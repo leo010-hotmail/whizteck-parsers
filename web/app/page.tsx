@@ -20,7 +20,7 @@ const PARSER_OPTIONS = [
   },
 ];
 
-const gatewayUrl = process.env.NEXT_PUBLIC_API_GATEWAY?.replace(/\/$/, "") ?? "";
+const gatewayUrl = process.env.NEXT_PUBLIC_API_GATEWAY_URL?.replace(/\/$/, "") ?? "";
 
 export default function HomePage() {
   const [selectedParser, setSelectedParser] = useState(PARSER_OPTIONS[0].value);
@@ -55,7 +55,7 @@ export default function HomePage() {
     }
 
     if (!gatewayUrl) {
-      setError("API gateway URL (NEXT_PUBLIC_API_GATEWAY) is not configured.");
+      setError("API gateway URL (NEXT_PUBLIC_API_GATEWAY_URL) is not configured.");
       return;
     }
 
@@ -73,7 +73,7 @@ export default function HomePage() {
       const response = await fetch(`/api/parse`, {
         method: "POST",
         headers: {
-          "Ocp-Apim-Subscription-Key": process.env.NEXT_PUBLIC_APIM_KEY,
+          "Ocp-Apim-Subscription-Key": process.env.APIM_SUBSCRIPTION_KEY,
         },
         body: formData,
       });
@@ -164,7 +164,7 @@ export default function HomePage() {
 
       <section className="card"> 
         <p className="subhead">API Gateway base URL</p>
-        <p className="mono">{gatewayUrl || "Configure NEXT_PUBLIC_API_GATEWAY in Vercel"}</p>
+        <p className="mono">{gatewayUrl || "Configure NEXT_PUBLIC_API_GATEWAY_URL in Vercel"}</p>
       </section>
     </div>
   );

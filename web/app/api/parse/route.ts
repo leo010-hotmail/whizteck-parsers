@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   const parser = formData.get("parser");
 
   const response = await fetch(
-    `${process.env.API_GATEWAY_URL}/${parser}`,
+    `${process.env.NEXT_PUBLIC_API_GATEWAY_URL}/${parser}`,
     {
       method: "POST",
       headers: {
