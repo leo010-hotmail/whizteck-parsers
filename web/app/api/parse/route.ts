@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   if (!parser) return NextResponse.json({ error: "Parser not specified" }, { status: 400 });
 
   // Forward the request to the Azure API Management gateway
-  const gatewayUrl = process.env.API_GATEWAY_URL!;
+  const gatewayUrl = process.env.NEXT_PUBLIC_API_GATEWAY_URL!;
   const subscriptionKey = process.env.APIM_SUBSCRIPTION_KEY!; // server-side, secret
 
   const formData = await req.formData();
